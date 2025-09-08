@@ -20,7 +20,19 @@ export default async function handler(req, res) {
       from: email,     // user’s email
       to: process.env.EMAIL_USER, // your email
       subject: `Portfolio Contact`,
-      text: `Message: ${message}\n`,
+      text: `You received a new message:\n\nFrom: ${email}\n\nMessage:\n${message}`,
+      html: `
+        <h2>New Contact Form Message</h2>
+        <p><strong>From:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
+      replyTo: email,
+
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "✅ Thanks for contacting me!",
+      text: "Hi, thanks for reaching out. I&apos;ll reply as soon as possible.",
     });
 
     res.status(200).json({ success: true });

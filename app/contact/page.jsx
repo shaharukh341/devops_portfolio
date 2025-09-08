@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { IoLogoWhatsapp } from "react-icons/io";
+import toast from "react-hot-toast";
 
 import {
   Select,
@@ -22,21 +23,25 @@ const info = [
     icon: <FaPhoneAlt />,
     title: "Phone",
     description: "(+91) 988 596 1544",
+     link: "tel:+919885961544", // 📞 Click-to-call
   },
   {
     icon: <IoLogoWhatsapp />,
     title: "WhatsApp",
     description: "(+91) 988 596 1544",
+    link: "https://wa.me/919885961544?text=Hello%20Sharukh%2C%20I%20am%20interested", // 💬 WhatsApp click-to-chat
   },
   {
     icon: <FaEnvelope />,
     title: "Email",
     description: "sharukh341ahamad@gmail.com",
+    link: "mailto:sharukh341ahamad@gmail.com", // 📧 Click-to-email
   },
   {
     icon: <FaMapMarkerAlt />,
     title: "Address",
     description: "Andhra Pradesh, India",
+    link: "https://www.google.com/maps/place/Ponnur,+Andhra+Pradesh" // change to your hometown
   },
 ];
 
@@ -47,6 +52,7 @@ const Contact = () => {
   email: "",
   message: "",
   });
+   
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -61,14 +67,14 @@ const Contact = () => {
       });
 
       if (res.ok) {
-        alert("Message sent successfully!");
+        toast.success("Message sent!");
         setFormData({ email: "", message: "" });
       } else {
-        alert("Failed to send message.");
+        toast.error("Failed to send message.");
       }
     } catch (err) {
       console.error(err);
-      alert("Error sending message.");
+      toast.error("Error sending message.");
     }
   };
   return (
@@ -120,7 +126,18 @@ const Contact = () => {
                     </div>
                     <div className="flex-1">
                       <p className="text-white/60">{item.title}</p>
-                      <h3 className="text-xl">{item.description}</h3>
+                      {item.link ? (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xl text-blue-500 hover:underline"
+                        >
+                          {item.description}
+                        </a>
+                      ) : (
+                        <h3 className="text-xl">{item.description}</h3>
+                      )}
                     </div>
                   </li>
                 );

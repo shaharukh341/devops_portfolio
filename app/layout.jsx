@@ -1,5 +1,6 @@
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 // components
 import Header from "@/components/Header";
@@ -24,6 +25,9 @@ export default function RootLayout({ children }) {
         <Header />
         <StairTransition />
         <PageTransition>{children}</PageTransition>
+
+        {/* Toaster for notifications */}
+        <Toaster position="top-center" />
       </body>
     </html>
   );
