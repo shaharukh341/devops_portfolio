@@ -29,7 +29,7 @@ const info = [
     icon: <IoLogoWhatsapp />,
     title: "WhatsApp",
     description: "(+91) 988 596 1544",
-    link: "https://wa.me/919885961544?text=Hello%20Sharukh%2C%20I%20am%20interested", // 💬 WhatsApp click-to-chat
+    link: "https://wa.me/919885961544?text=Hello%20*SHARUKH%20AHMED%20SHAIK*%2C%0A%0AWe%20are%20pleased%20to%20inform%20you%20that%20your%20profile%20has%20been%20shortlisted%20for%20the%20next%20round%20of%20our%20recruitment%20process.%0A%0ACould%20you%20please%20share%20your%20availability%20for%20a%20suitable%20time%20slot%20to%20schedule%20the%20interview%3F%0A%0ARegards%2C%0AHR%20Team", // 💬 WhatsApp click-to-chat
   },
   {
     icon: <FaEnvelope />,
