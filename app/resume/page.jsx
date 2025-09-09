@@ -94,7 +94,7 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quibusdam, sunt explicabo inventore.",
+    "DevOps Engineer focused on automation, cloud scalability, and secure delivery pipelines — turning code into reliable production systems.",
   skillList: [
     {
       icon: <SiKubernetes/>,
