@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
 import { Button } from "./ui/button";
-
+import { useTheme } from "next-themes";
+import { Sun, Moon } from "lucide-react"; // icons
 
 // Proper DevOps Infinity Symbol
 const DevOpsSymbol = () => {
@@ -36,9 +37,9 @@ const DevOpsSymbol = () => {
         strokeWidth="6"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeDasharray="4 12" // dotted effect (2px line, 6px gap)
+        strokeDasharray="4 12"
         initial={{ strokeDashoffset: 0 }}
-        animate={{ strokeDashoffset: -200 }} // slow forward movement
+        animate={{ strokeDashoffset: -200 }}
         transition={{
           duration: 3,
           repeat: Infinity,
@@ -46,37 +47,39 @@ const DevOpsSymbol = () => {
           ease: "linear",
         }}
       />
-       {/* Dev in left loop */}
-        <text
-          x="60"
-          y="50"
-          fill="#00B4D8"
-          fontSize="18"
-          fontWeight="bold"
-          textAnchor="middle"
-          alignmentBaseline="middle"
-        >
-          Dev
-        </text>
-        {/* Ops in right loop */}
-        <text
-          x="140"
-          y="50"
-          fill="#e7e8e9ff"
-          fontSize="18"
-          fontWeight="bold"
-          textAnchor="middle"
-          alignmentBaseline="middle"
-        >
-          Ops
-        </text>
+      {/* Dev in left loop */}
+      <text
+        x="60"
+        y="50"
+        fill="#00B4D8"
+        fontSize="18"
+        fontWeight="bold"
+        textAnchor="middle"
+        alignmentBaseline="middle"
+      >
+        Dev
+      </text>
+      {/* Ops in right loop */}
+      <text
+        x="140"
+        y="50"
+        fill="#e7e8e9ff"
+        fontSize="18"
+        fontWeight="bold"
+        textAnchor="middle"
+        alignmentBaseline="middle"
+      >
+        Ops
+      </text>
     </motion.svg>
   );
 };
 
 const Header = () => {
+  const { theme, setTheme } = useTheme();
+
   return (
-    <header className="py-6 xl:py-10 text-white">
+    <header className="py-6 xl:py-10 bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
       <div className="container mx-auto flex justify-between items-center">
         {/* logo with DevOps animated symbol */}
         <Link href="/">
@@ -87,15 +90,29 @@ const Header = () => {
         </Link>
 
         {/* desktop nav */}
-        <div className="hidden xl:flex items-center gap-8">
+        <div className="hidden xl:flex items-center gap-6">
           <Nav />
           <Link href="/contact">
             <Button>Hire me</Button>
           </Link>
+          {/* Theme Toggle Button */}
+          <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="p-2 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+          >
+            {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
         </div>
 
         {/* mobile nav */}
-        <div className="xl:hidden">
+        <div className="xl:hidden flex items-center gap-4">
+          {/* Theme Toggle for Mobile */}
+          <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="p-2 rounded-full border border-gray-300 dark:border-gray-600"
+          >
+            {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
           <MobileNav />
         </div>
       </div>
