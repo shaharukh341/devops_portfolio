@@ -20,19 +20,19 @@ const Photo = () => {
             opacity: 1,
             transition: { delay: 1.4, duration: 1.4, ease: "easeInOut" },
           }}
-          className="w-[198px] h-[198px] xl:w-[398px] xl:h-[398px] mix-blend-lighten absolute"
+          className="w-[198px] h-[198px] xl:w-[398px] xl:h-[398px] absolute dark:mix-blend-lighten"
         >
           <Image
             src="/assets/photo.png"
             priority
             quality={100}
             fill
-            alt=""
+            alt="Sharukh Ahmed Shaik"
             className="object-contain"
           />
         </motion.div>
 
-        {/* circle */}
+        {/* circle animations */}
         <motion.svg
           className="w-[200px] xl:w-[406px] h-[200px] xl:h-[406px]"
           fill="transparent"

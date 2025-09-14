@@ -35,9 +35,11 @@ const Nav = () => {
           <Link
             href={link.path}
             key={index}
-            className={`${
-              link.path === pathname && "text-accent border-b-2 border-accent"
-            } capitalize font-medium hover:text-accent transition-all`}
+          className={`capitalize font-medium transition-all ${
+            link.path === pathname
+              ? "text-blue-600 border-b-2 border-blue-600"
+              : "text-gray-700 dark:text-gray-300 hover:text-blue-600"
+                }`}
           >
             {link.name}
           </Link>

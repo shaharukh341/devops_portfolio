@@ -1,6 +1,7 @@
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import { ThemeProvider } from "next-themes";
 
 // components
 import Header from "@/components/Header.jsx";
@@ -20,14 +21,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={jetbrainsMono.variable}>
-        <Header />
-        <StairTransition />
-        <PageTransition>{children}</PageTransition>
-
-        {/* Toaster for notifications */}
-        <Toaster position="top-center" />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          <StairTransition />
+          <PageTransition>{children}</PageTransition>
+          <Toaster position="top-center" />
+        </ThemeProvider>
       </body>
     </html>
   );
