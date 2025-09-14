@@ -85,7 +85,7 @@ const Contact = () => {
                          bg-white dark:bg-black 
                          text-gray-900 dark:text-white"
             >
-              <h3 className="text-4xl text-accent">Let&apos;s work together</h3>
+              <h3 className="text-4xl text-blue-600 dark:text-blue-400">Let&apos;s work together</h3>
               <p className="text-black dark:text-white">
                 Send me a message and I&apos;ll get back to you soon.
               </p>
@@ -111,7 +111,7 @@ const Contact = () => {
                 required
               />
               {/* btn */}
-              <Button size="md" className="max-w-40">
+              <Button size="md" className="max-w-40 bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-400 dark:hover:bg-blue-500 dark:text-black transition-colors">
                 Send message
               </Button>
             </form>
@@ -126,7 +126,7 @@ const Contact = () => {
                     <div
                       className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] 
                                 rounded-md flex items-center justify-center 
-                                bg-gray-200 dark:bg-[#27272c] text-accent"
+                                bg-gray-200 dark:bg-[#27272c] text-blue-600 dark:text-blue-400"
                     >
                       <div className="text-[28px]">{item.icon}</div>
                     </div>

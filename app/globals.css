@@ -4,8 +4,9 @@
 
 @layer base {
   body {
-    @apply font-primary bg-primary text-white leading-loose;
+    @apply font-primary leading-loose bg-white text-black dark:bg-black dark:text-white;
   }
+
   .h1 {
     @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
   }
@@ -16,10 +17,19 @@
     @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
   }
   .text-outline {
-    -webkit-text-stroke: 1px #ffffff;
+    -webkit-text-stroke: 1px black;      /* default for light mode */
+  }
+
+  .dark .text-outline {
+    -webkit-text-stroke: 1px white;      /* for dark mode */
   }
 
   .text-outline-hover {
-    -webkit-text-stroke: 1px #00ff99;
-  }
+  -webkit-text-stroke: rgb(59, 130, 246); /* text-blue-600 */
+  transition: all 0.3s ease-in-out;       /* smooth transition */
+}
+
+.text-outline-hover:hover {
+  -webkit-text-stroke: rgb(96, 165, 250); /* text-blue-400 on hover */
+}
 }
