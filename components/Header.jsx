@@ -5,6 +5,7 @@ import Nav from "./Nav";
 import MobileNav from "./MobileNav";
 import { Button } from "./ui/button";
 
+
 // Proper DevOps Infinity Symbol
 const DevOpsSymbol = () => {
   return (
@@ -32,7 +33,7 @@ const DevOpsSymbol = () => {
         "
         fill="none"
         stroke="url(#devopsGradient)"
-        strokeWidth="6"
+        strokeWidth="12"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeDasharray="4 12" // dotted effect (2px line, 6px gap)

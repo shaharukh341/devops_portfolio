@@ -20,7 +20,12 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    // 👇 Add these two lines
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": [
     "next-env.d.ts",
