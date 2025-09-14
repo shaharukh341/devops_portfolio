@@ -33,19 +33,43 @@ const DevOpsSymbol = () => {
         "
         fill="none"
         stroke="url(#devopsGradient)"
-        strokeWidth="12"
+        strokeWidth="6"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeDasharray="4 12" // dotted effect (2px line, 6px gap)
         initial={{ strokeDashoffset: 0 }}
         animate={{ strokeDashoffset: -200 }} // slow forward movement
         transition={{
-          duration: 8,
+          duration: 3,
           repeat: Infinity,
           repeatType: "loop",
           ease: "linear",
         }}
       />
+       {/* Dev in left loop */}
+        <text
+          x="60"
+          y="50"
+          fill="#00B4D8"
+          fontSize="18"
+          fontWeight="bold"
+          textAnchor="middle"
+          alignmentBaseline="middle"
+        >
+          Dev
+        </text>
+        {/* Ops in right loop */}
+        <text
+          x="140"
+          y="50"
+          fill="#e7e8e9ff"
+          fontSize="18"
+          fontWeight="bold"
+          textAnchor="middle"
+          alignmentBaseline="middle"
+        >
+          Ops
+        </text>
     </motion.svg>
   );
 };
